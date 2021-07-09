@@ -1,7 +1,7 @@
 import {Component} from "react";
 
 
-export class SecondComponent extends Component{
+class SecondComponent extends Component{
     render() {
         return (
             <div className="SecondComponent">
@@ -10,3 +10,5 @@ export class SecondComponent extends Component{
         );
     }
 }
+
+export default SecondComponent;
