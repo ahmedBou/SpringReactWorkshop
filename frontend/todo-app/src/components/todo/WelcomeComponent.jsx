@@ -1,17 +1,19 @@
 import {Link} from "react-router-dom";
 import {Component} from "react";
 import HelloWorldService from "../../api/todo/HelloWorldService.js";
-import axios from "axios";
-import {logDOM} from "@testing-library/react";
 
 class WelcomeComponent extends Component{
     constructor(props) {
         super(props);
-        this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this)
+        //this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this)
+
+
         this.state={
             welcomeMessage: ''
         }
-        this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
+        //this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
+        this.retrieveHelloPath = this.retrieveHelloPath.bind(this)
+        this.handleHelloPathVariable= this.handleHelloPathVariable.bind(this)
     }
 
 
@@ -25,7 +27,7 @@ class WelcomeComponent extends Component{
                 </div>
                 <div className="container">
                     Click here to see if we can get any data from service provider
-                    <button onClick={this.retrieveWelcomeMessage} className="btn btn-success" >provider</button>
+                    <button onClick={this.retrieveHelloPath} className="btn btn-success" >provider</button>
                 </div>
 
                 <div className="container">
@@ -35,15 +37,32 @@ class WelcomeComponent extends Component{
         )
 
     }
+    /*
     retrieveWelcomeMessage(){
        HelloWorldService.executeHelloWorldService()
-           .then( response => this.handleSuccessfulResponse(response))
+           //.then( response => this.handleSuccessfulResponse(response))
            //.catch()
+           .then(response =>this.handleSuccessfulResponse(response))
+    }*/
+
+    retrieveHelloPath(){
+        console.log(this.props.match.params.name)
+        HelloWorldService.executeHelloPathVariable(this.props.match.params.name)
+            .then(response => this.handleHelloPathVariable(response))
     }
 
+    /*
     handleSuccessfulResponse(response) {
-        this.setState({welcomeMessage: response.data})
+        console.log(response)
+        this.setState({welcomeMessage: response.data.statement})
+    }*/
+
+    handleHelloPathVariable(response) {
+        console.log(response)
+        this.setState({welcomeMessage: response.data.statement})
     }
+
+
 
 
 }
