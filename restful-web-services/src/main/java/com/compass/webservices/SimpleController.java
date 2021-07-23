@@ -16,6 +16,7 @@ public class SimpleController {
     public HelloWorldBean helloWorldBean(){
         return new HelloWorldBean("Hello world");
     }
+
     @GetMapping(path="/hello-bean/{name}")
     public HelloWorldBean helloPathVariable(@PathVariable String name){
         return new HelloWorldBean("Hello "+name);
