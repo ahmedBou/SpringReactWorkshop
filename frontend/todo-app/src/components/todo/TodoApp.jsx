@@ -10,12 +10,12 @@ import FooterComponent from "./FooterComponent";
 import WelcomeComponent from "./WelcomeComponent";
 import ErrorComponent from "./ErrorComponent";
 import LogoutComponent from "./LogoutComponent";
+import TodoComponent from "./TodoComponent";
 
 class TodoApp extends Component{
 
     render() {
         return(
-
             <div className="todo">
 
                 <Router>
@@ -26,8 +26,10 @@ class TodoApp extends Component{
                             <Route path="/login" component={LoginComponent} />
                             <AuthenticatedRoute Route path="/welcome/:name" component={WelcomeComponent} />
                             <AuthenticatedRoute Route path="/logout" component={LogoutComponent} />
+                            <AuthenticatedRoute Route path="/todos/:id" component={TodoComponent} />
                             <AuthenticatedRoute Route path="/todos" component={ListTodosComponent} />
                             <Route component={ErrorComponent}/>
+
                         </Switch>
                     </>
 

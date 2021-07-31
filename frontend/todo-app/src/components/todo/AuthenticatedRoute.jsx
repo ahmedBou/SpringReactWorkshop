@@ -14,3 +14,5 @@ class AuthenticatedRoute extends Component{
     }
 }
 export default AuthenticatedRoute;
+
+// docker run -p 4200:80 frontend/todo-app:0.0.1-SNAPSHOT
