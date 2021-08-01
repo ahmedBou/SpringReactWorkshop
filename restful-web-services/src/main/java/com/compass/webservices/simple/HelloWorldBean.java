@@ -1,4 +1,4 @@
-package com.compass.webservices;
+package com.compass.webservices.simple;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

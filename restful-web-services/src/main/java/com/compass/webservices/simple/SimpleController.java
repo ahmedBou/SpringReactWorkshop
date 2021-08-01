@@ -1,6 +1,7 @@
-package com.compass.webservices;
+package com.compass.webservices.simple;
 
 
+import com.compass.webservices.simple.HelloWorldBean;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
